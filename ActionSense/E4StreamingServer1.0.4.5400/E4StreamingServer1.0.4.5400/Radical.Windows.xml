@@ -1,0 +1,1187 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Radical.Windows</name>
+    </assembly>
+    <members>
+        <member name="T:Topics.Radical.Windows.Analytics.CommandEvent">
+            <summary>
+            TODO
+            </summary>
+        </member>
+        <member name="M:Topics.Radical.ComponentModel.Windows.Input.CommandDescriptionAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Topics.Radical.ComponentModel.Windows.Input.CommandDescriptionAttribute"/> class.
+            </summary>
+            <param name="displayText">The display text.</param>
+        </member>
+        <member name="P:Topics.Radical.ComponentModel.Windows.Input.CommandDescriptionAttribute.DisplayText">
+            <summary>
+            Gets the command display text.
+            </summary>
+            <value>The display text.</value>
+        </member>
+        <member name="T:Topics.Radical.ComponentModel.Windows.Input.IDelegateCommand">
+            <summary>
+            Defines an extended ICommand with support for bindings and triggers.
+            </summary>
+        </member>
+        <member name="M:Topics.Radical.ComponentModel.Windows.Input.IDelegateCommand.AddGesture(System.Windows.Input.InputGesture)">
+            <summary>
+            Adds the given gesture to the gestures list.
+            </summary>
+            <param name="gesture">The gesture.</param>
+            <returns>An instance of the current command.</returns>
+        </member>
+        <member name="M:Topics.Radical.ComponentModel.Windows.Input.IDelegateCommand.AddKeyGesture(System.Windows.Input.Key)">
+            <summary>
+            Adds the given key gesture to the gestures list.
+            </summary>
+            <param name="key">The key.</param>
+            <returns>An instance of the current command.</returns>
+        </member>
+        <member name="M:Topics.Radical.ComponentModel.Windows.Input.IDelegateCommand.AddKeyGesture(System.Windows.Input.Key,System.Windows.Input.ModifierKeys)">
+            <summary>
+            Adds the given key gesture to the gestures list.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="modifiers">The key gesture modifiers.</param>
+            <returns>An instance of the current command.</returns>
+        </member>
+        <member name="M:Topics.Radical.ComponentModel.Windows.Input.IDelegateCommand.WithTrackingPreview(System.Action{Topics.Radical.Analytics.AnalyticsEvent})">
+            <summary>
+            Intercepts the analytics tracking information before sending to the analytics service.
+            </summary>
+            <param name="onBeforeTracking">The before tracking handler.</param>
+            <returns>An instance of the current command.</returns>
+        </member>
+        <member name="M:Topics.Radical.ComponentModel.Windows.Input.IDelegateCommand.OnExecute(System.Action{System.Object})">
+            <summary>
+            Sets the given Action as the delegate that must handle
+            the commands execution logic.
+            </summary>
+            <param name="executeMethod">The delegate to execute at execution time.</param>
+            <returns>An instance of the current command.</returns>
+        </member>
+        <member name="M:Topics.Radical.ComponentModel.Windows.Input.IDelegateCommand.OnCanExecute(System.Func{System.Object,System.Boolean})">
+            <summary>
+            Sets the given Action as the delegate that must handle
+            the logic that determines whether the command can be executed or not.
+            </summary>
+            <param name="canExecuteMethod">The delegate to invoke.</param>
+            <returns>An instance of the current command.</returns>
+        </member>
+        <member name="M:Topics.Radical.ComponentModel.Windows.Input.IDelegateCommand.EvaluateCanExecute">
+            <summary>
+            Force the command to evaluates execution status.
+            </summary>
+        </member>
+        <member name="M:Topics.Radical.ComponentModel.Windows.Input.IDelegateCommand.AddMonitor(Topics.Radical.ComponentModel.IMonitor)">
+            <summary>
+            Adds a trigger monitor to the list of triggers.
+            </summary>
+            <param name="source">The source monitor.</param>
+            <returns>An instance of the current command.</returns>
+        </member>
+        <member name="M:Topics.Radical.ComponentModel.Windows.Input.IDelegateCommand.AddMonitor(Topics.Radical.ComponentModel.IMonitor[])">
+            <summary>
+            Adds all the given triggers to the list of triggers.
+            </summary>
+            <param name="triggers">The triggers.</param>
+            <returns>An instance of the current command.</returns>
+        </member>
+        <member name="M:Topics.Radical.ComponentModel.Windows.Input.IDelegateCommand.RemoveMonitor(Topics.Radical.ComponentModel.IMonitor)">
+            <summary>
+            Removes the given monitor from the list of triggers.
+            </summary>
+            <param name="source">The monitor to remove.</param>
+            <returns>An instance of the current command.</returns>
+        </member>
+        <member name="P:Topics.Radical.ComponentModel.Windows.Input.IDelegateCommand.DisplayText">
+            <summary>
+            Gets the display text.
+            </summary>
+            <value>The display text.</value>
+        </member>
+        <member name="P:Topics.Radical.ComponentModel.Windows.Input.IDelegateCommand.InputBindings">
+            <summary>
+            Gets the input bindings.
+            </summary>
+            <value>The input bindings.</value>
+        </member>
+        <member name="M:Topics.Radical.ComponentModel.Windows.Input.KeyBindingAttribute.#ctor(System.Windows.Input.Key)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Topics.Radical.ComponentModel.Windows.Input.KeyBindingAttribute"/> class.
+            </summary>
+            <param name="key">The keyboard key.</param>
+        </member>
+        <member name="P:Topics.Radical.ComponentModel.Windows.Input.KeyBindingAttribute.Key">
+            <summary>
+            Gets the keyboard key to associate with the command.
+            </summary>
+            <value>The keyboard key.</value>
+        </member>
+        <member name="P:Topics.Radical.ComponentModel.Windows.Input.KeyBindingAttribute.Modifiers">
+            <summary>
+            Gets the modifier keyboard key to associate with the command.
+            </summary>
+            <value>The modifier keyboard key.</value>
+        </member>
+        <member name="M:Topics.Radical.Diagnostics.BindingErrorTraceListener.Initialize">
+            <summary>
+            Initializes the trace listener only if there is a debugger attached.
+            </summary>
+        </member>
+        <member name="M:Topics.Radical.Diagnostics.BindingErrorTraceListener.Initialize(System.Diagnostics.SourceLevels,System.Diagnostics.TraceOptions)">
+            <summary>
+            Initializes the trace listener only if there is a debugger attached.
+            </summary>
+            <param name="level">The level.</param>
+            <param name="options">The options.</param>
+        </member>
+        <member name="M:Topics.Radical.Diagnostics.BindingErrorTraceListener.CloseTrace">
+            <summary>
+            Closes the trace.
+            </summary>
+        </member>
+        <member name="M:Topics.Radical.Diagnostics.BindingErrorTraceListener.#ctor">
+            <summary>
+            Prevents a default instance of the <see cref="T:Topics.Radical.Diagnostics.BindingErrorTraceListener"/> class from being created.
+            </summary>
+        </member>
+        <member name="M:Topics.Radical.Diagnostics.BindingErrorTraceListener.Write(System.String)">
+            <summary>
+            Writes the output to the OutputDebugString function and to the <see cref="M:System.Diagnostics.Debugger.Log(System.Int32,System.String,System.String)"/> method.
+            </summary>
+            <param name="message">The message to write to OutputDebugString and <see cref="M:System.Diagnostics.Debugger.Log(System.Int32,System.String,System.String)"/>.</param>
+            <PermissionSet>
+              <IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/>
+              <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="ControlEvidence"/>
+              </PermissionSet>
+        </member>
+        <member name="M:Topics.Radical.Diagnostics.BindingErrorTraceListener.WriteLine(System.String)">
+            <summary>
+            Writes the output to the OutputDebugString function and to the <see cref="M:System.Diagnostics.Debugger.Log(System.Int32,System.String,System.String)"/> method, followed by a carriage return and line feed (\r\n).
+            </summary>
+            <param name="message">The message to write to OutputDebugString and <see cref="M:System.Diagnostics.Debugger.Log(System.Int32,System.String,System.String)"/>.</param>
+            <PermissionSet>
+              <IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/>
+              <IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="ControlEvidence"/>
+              </PermissionSet>
+        </member>
+        <member name="M:Topics.Radical.Windows.Model.ObservableEntityCollection`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Topics.Radical.Windows.Model.ObservableEntityCollection`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Topics.Radical.Windows.Model.ObservableEntityCollection`1.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Topics.Radical.Windows.Model.ObservableEntityCollection`1"/> class.
+            </summary>
+            <param name="capcity">The capcity.</param>
+        </member>
+        <member name="M:Topics.Radical.Windows.Model.ObservableEntityCollection`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Topics.Radical.Windows.Model.ObservableEntityCollection`1"/> class.
+            </summary>
+            <param name="collection">The collection.</param>
+        </member>
+        <member name="M:Topics.Radical.Windows.Model.ObservableEntityCollection`1.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Topics.Radical.Windows.Model.ObservableEntityCollection`1"/> class.
+            </summary>
+            <param name="info">The info.</param>
+            <param name="context">The context.</param>
+        </member>
+        <member name="M:Topics.Radical.Windows.Model.ObservableEntityCollection`1.OnPropertyChanged``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+            Raises the <see cref="E:PropertyChanged"/> event.
+            </summary>
+            <param name="property">The property.</param>
+        </member>
+        <member name="M:Topics.Radical.Windows.Model.ObservableEntityCollection`1.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            Raises the <see cref="E:PropertyChanged"/> event.
+            </summary>
+            <param name="e">The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Topics.Radical.Windows.Model.ObservableEntityCollection`1.OnCollectionChanged(Topics.Radical.ComponentModel.CollectionChangedEventArgs{`0})">
+            <summary>
+            Raises the <see cref="E:CollectionChanged"/> event.
+            </summary>
+            <param name="e">The <see cref="T:Topics.Radical.ComponentModel.CollectionChangedEventArgs`1"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Topics.Radical.Windows.Model.ObservableEntityCollection`1.OnCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            Raises the <see cref="E:CollectionChanged"/> event.
+            </summary>
+            <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="E:Topics.Radical.Windows.Model.ObservableEntityCollection`1.PropertyChanged">
+            <summary>
+            Occurs when a property value changes.
+            </summary>
+        </member>
+        <member name="E:Topics.Radical.Windows.Model.ObservableEntityCollection`1.System#Collections#Specialized#INotifyCollectionChanged#CollectionChanged">
+            <summary>
+            Occurs when this collection changes.
+            </summary>
+        </member>
+        <member name="T:Topics.Radical.Windows.Behaviors.AutoComplete">
+            <summary>
+            AutoComplete
+            </summary>
+        </member>
+        <member name="M:Topics.Radical.Windows.Behaviors.AutoComplete.#ctor(System.Windows.Controls.Control)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Topics.Radical.Windows.Behaviors.AutoComplete"/> class.
+            </summary>
+        </member>
+        <member name="M:Topics.Radical.Windows.Behaviors.AutoComplete.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Topics.Radical.Windows.Markup.BindingDecoratorBase">
+            <summary>
+            A base class for custom markup extension which provides properties
+            that can be found on regular <see cref="P:Topics.Radical.Windows.Markup.BindingDecoratorBase.Binding"/> markup extension.
+            </summary>
+        </member>
+        <member name="F:Topics.Radical.Windows.Markup.BindingDecoratorBase.binding">
+            <summary>
+            The decorated binding class.
+            </summary>
+        </member>
+        <member name="M:Topics.Radical.Windows.Markup.BindingDecoratorBase.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Topics.Radical.Windows.Markup.BindingDecoratorBase"/> class.
+            </summary>
+        </member>
+        <member name="M:Topics.Radical.Windows.Markup.BindingDecoratorBase.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Topics.Radical.Windows.Markup.BindingDecoratorBase"/> class.
+            </summary>
+            <param name="path">The path.</param>
+        </member>
+        <member name="M:Topics.Radical.Windows.Markup.BindingDecoratorBase.ProvideValue(System.IServiceProvider)">
+            <summary>
+            This basic implementation just sets a binding on the targeted
+            <see cref="T:System.Windows.DependencyObject"/> and returns the appropriate
+            <see cref="T:System.Windows.Data.BindingExpressionBase"/> instance.<br/>
+            All this work is delegated to the decorated <see cref="P:Topics.Radical.Windows.Markup.BindingDecoratorBase.Binding"/>
+            instance.
+            </summary>
+            <returns>
+            The object value to set on the property where the extension is applied. 
+            In case of a valid binding expression, this is a <see cref="T:System.Windows.Data.BindingExpressionBase"/>
+            instance.
+            </returns>
+            <param name="provider">Object that can provide services for the markup
+            extension.</param>
+        </member>
+        <member name="M:Topics.Radical.Windows.Markup.BindingDecoratorBase.TryGetTargetItems(System.IServiceProvider,System.Windows.DependencyObject@,System.Windows.DependencyProperty@)">
+            <summary>
+            Validates a service provider that was submitted to the <see cref="M:Topics.Radical.Windows.Markup.BindingDecoratorBase.ProvideValue(System.IServiceProvider)"/>
+            method. This method checks whether the provider is null (happens at design time),
+            whether it provides an <see cref="T:System.Windows.Markup.IProvideValueTarget"/> service, and whether
+            the service's <see cref="P:System.Windows.Markup.IProvideValueTarget.TargetObject"/> and
+            <see cref="P:System.Windows.Markup.IProvideValueTarget.TargetProperty"/> properties are valid
+            <see cref="T:System.Windows.DependencyObject"/> and <see cref="T:System.Windows.DependencyProperty"/>
+            instances.
+            </summary>
+            <param name="provider">The provider to be validated.</param>
+            <param name="target">The binding target of the binding.</param>
+            <param name="dp">The target property of the binding.</param>
+            <returns>True if the provider supports all that's needed.</returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.Markup.BindingDecoratorBase.IsUsingSharedDependencyProperty(System.IServiceProvider)">
+            <summary>
+            Determines whether this binding is using a shared dependency property.
+            </summary>
+            <param name="provider">The provider.</param>
+            <returns>
+            	<c>true</c> if is using a shared dependency property; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="P:Topics.Radical.Windows.Markup.BindingDecoratorBase.Binding">
+            <summary>
+            The decorated binding class.
+            </summary>
+        </member>
+        <member name="T:Topics.Radical.Windows.Behaviors.BusyStatus">
+            <summary>
+            The status of the application.
+            </summary>
+        </member>
+        <member name="F:Topics.Radical.Windows.Behaviors.BusyStatus.Idle">
+            <summary>
+            The application is idle.
+            </summary>
+        </member>
+        <member name="F:Topics.Radical.Windows.Behaviors.BusyStatus.Busy">
+            <summary>
+            The application is busy.
+            </summary>
+        </member>
+        <member name="M:Topics.Radical.Windows.Behaviors.DesignTimeHelper.GetIsInDesignMode">
+            <summary>
+            Gets a value indicating whether we are in design mode.
+            </summary>
+            <returns><c>True</c> if we are in design mode, otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.Behaviors.DragDropManager.GetIsDragging(System.Windows.DependencyObject)">
+            <summary>
+            Gets the is dragging.
+            </summary>
+            <param name="owner">The owner.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.Behaviors.DragDropManager.FindDragContainer(System.Windows.DependencyObject)">
+            <summary>
+            Finds the drag container that is the WPF element 
+            that holds the DataObject that will be dragged.
+            </summary>
+            <param name="originalSource">
+            The original source where the 
+            drag operation started.
+            </param>
+            <returns>
+            The element that holds the DataObject, 
+            or null if none can be found.
+            </returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.Behaviors.DragDropManager.FindDropTargetContainer(System.Windows.DependencyObject)">
+            <summary>
+            Finds the WPF element where the DropTarget property has been defined.
+            </summary>
+            <param name="originalSource">
+            The original source where the Drop, 
+            or DragOver, operation is happening.
+            </param>
+            <returns>
+            The element that holds the DropTarget, 
+            or null if none can be found.
+            </returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.Behaviors.DragDropManager.FindDropCommandHolder(System.Windows.DependencyObject)">
+            <summary>
+            Finds the WPF element where the drop command is attached.
+            </summary>
+            <param name="originalSource">
+            The original source where the Drop, 
+            or DragOver, operation is happening.
+            </param>
+            <returns>
+            The element that holds the drop command, 
+            or null if none can be found.
+            </returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.Behaviors.DragDropOperationArgs.#ctor(System.Windows.IDataObject,System.Windows.DragDropKeyStates,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Topics.Radical.Windows.Behaviors.DragDropOperationArgs"/> class.
+            </summary>
+            <param name="data">The data.</param>
+            <param name="keyStates">The key states.</param>
+            <param name="dropTarget">The drop target.</param>
+        </member>
+        <member name="P:Topics.Radical.Windows.Behaviors.DragDropOperationArgs.Data">
+            <summary>
+            Gets the data.
+            </summary>
+            <value>The data.</value>
+        </member>
+        <member name="P:Topics.Radical.Windows.Behaviors.DragDropOperationArgs.KeyStates">
+            <summary>
+            Gets the key states.
+            </summary>
+            <value>The key states.</value>
+        </member>
+        <member name="P:Topics.Radical.Windows.Behaviors.DragDropOperationArgs.DropTarget">
+            <summary>
+            Gets or sets the drop target.
+            </summary>
+            <value>The drop target.</value>
+        </member>
+        <member name="M:Topics.Radical.Windows.Behaviors.DragOverArgs.#ctor(System.Windows.IDataObject,System.Windows.DragDropKeyStates,System.Object,System.Windows.DragDropEffects,System.Windows.Point)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Topics.Radical.Windows.Behaviors.DragOverArgs"/> class.
+            </summary>
+            <param name="data">The data.</param>
+            <param name="keyStates">The key states.</param>
+            <param name="dropTarget">The drop target.</param>
+            <param name="allowedEffects">The allowed effects.</param>
+            <param name="position">The position.</param>
+        </member>
+        <member name="P:Topics.Radical.Windows.Behaviors.DragOverArgs.AllowedEffects">
+            <summary>
+            Gets the allowed effects.
+            </summary>
+            <value>The allowed effects.</value>
+        </member>
+        <member name="P:Topics.Radical.Windows.Behaviors.DragOverArgs.Effects">
+            <summary>
+            Gets or sets the effects.
+            </summary>
+            <value>The effects.</value>
+        </member>
+        <member name="P:Topics.Radical.Windows.Behaviors.DragOverArgs.Position">
+            <summary>
+            Gets the Position.
+            </summary>
+            <value>The position.</value>
+        </member>
+        <member name="M:Topics.Radical.Windows.Behaviors.DropArgs.#ctor(System.Windows.IDataObject,System.Windows.DragDropKeyStates,System.Object,System.Windows.Point)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Topics.Radical.Windows.Behaviors.DropArgs"/> class.
+            </summary>
+            <param name="data">The data.</param>
+            <param name="keyStates">The key states.</param>
+            <param name="dropTarget">The drop target.</param>
+            <param name="position">The position.</param>
+        </member>
+        <member name="P:Topics.Radical.Windows.Behaviors.DropArgs.Position">
+            <summary>
+            Gets the Position.
+            </summary>
+            <value>The position.</value>
+        </member>
+        <member name="M:Topics.Radical.Windows.Behaviors.RadicalBehavior`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Topics.Radical.Windows.Behaviors.RadicalBehavior`1"/> class.
+            </summary>
+        </member>
+        <member name="P:Topics.Radical.Windows.Behaviors.ListViewColumnHeaderCommandBehavior.CommandTarget">
+            <summary>
+            The object that the command is being executed on.
+            </summary>
+            <value></value>
+        </member>
+        <member name="F:Topics.Radical.Windows.Behaviors.OverlayBehavior.ContentProperty">
+            <summary>
+            Content Dependency property
+            </summary>
+        </member>
+        <member name="P:Topics.Radical.Windows.Behaviors.OverlayBehavior.Content">
+            <summary>
+            Gets or sets the content.
+            </summary>
+            <value>The content.</value>
+        </member>
+        <member name="T:Topics.Radical.Windows.Behaviors.Password">
+            <summary>
+            Add support to bind a property to the PasswordBox Password property.
+            </summary>
+        </member>
+        <member name="F:Topics.Radical.Windows.Behaviors.Password.TextProperty">
+            <summary>
+            The password Text attached property.
+            </summary>
+        </member>
+        <member name="M:Topics.Radical.Windows.Behaviors.Password.GetText(System.Windows.Controls.PasswordBox)">
+            <summary>
+            Gets the password text.
+            </summary>
+            <param name="passwordBox">The password box.</param>
+            <returns>The password value.</returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.Behaviors.Password.SetText(System.Windows.Controls.PasswordBox,System.String)">
+            <summary>
+            Sets the password text.
+            </summary>
+            <param name="passwordBox">The password box.</param>
+            <param name="value">The password value.</param>
+        </member>
+        <member name="M:Topics.Radical.Windows.Behaviors.WindowControlBoxBehavior.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Topics.Radical.Windows.Behaviors.WindowControlBoxBehavior"/> class.
+            </summary>
+        </member>
+        <member name="M:Topics.Radical.Windows.Behaviors.WindowControlBoxBehavior.OnAttached">
+            <summary>
+            Called after the behavior is attached to an AssociatedObject.
+            </summary>
+            <remarks>Override this to hook up functionality to the AssociatedObject.</remarks>
+        </member>
+        <member name="M:Topics.Radical.Windows.Behaviors.WindowControlBoxBehavior.OnDetaching">
+            <summary>
+            Called when the behavior is being detached from its AssociatedObject, but before it has actually occurred.
+            </summary>
+            <remarks>Override this to unhook functionality from the AssociatedObject.</remarks>
+        </member>
+        <member name="M:Topics.Radical.Windows.CommandBuilders.DelegateCommandBuilder.TryGenerateCommandData(System.Windows.PropertyPath,System.Object,Topics.Radical.Windows.CommandBuilders.CommandData@)">
+            <summary>
+            Tries to generate command data.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="dataContext">The data context.</param>
+            <param name="data">The data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Topics.Radical.Windows.Controls.Automation.Peers.ResizerAutomationPeer">
+            <summary>
+            Exposes <see cref="T:Topics.Radical.Windows.Controls.Resizer"/> types to UI automation.
+            </summary>
+        </member>
+        <member name="T:Topics.Radical.Windows.Controls.ResizeDirection">
+            <summary>
+            Defines possible directions a <see cref="T:Topics.Radical.Windows.Controls.Resizer"/> can resize.
+            </summary>
+        </member>
+        <member name="F:Topics.Radical.Windows.Controls.ResizeDirection.NorthEast">
+            <summary>
+            Size is increased by dragging up and to the right, and decreased by dragging down and to the left.
+            </summary>
+        </member>
+        <member name="F:Topics.Radical.Windows.Controls.ResizeDirection.NorthWest">
+            <summary>
+            Size is increased by dragging up and to the left, and decreased by dragging down and to the right.
+            </summary>
+        </member>
+        <member name="F:Topics.Radical.Windows.Controls.ResizeDirection.SouthEast">
+            <summary>
+            Size is increased by dragging down and to the right, and decreased by dragging up and to the left.
+            </summary>
+        </member>
+        <member name="F:Topics.Radical.Windows.Controls.ResizeDirection.SouthWest">
+            <summary>
+            Size is increased by dragging down and to the left, and decreased by dragging up and to the right.
+            </summary>
+        </member>
+        <member name="F:Topics.Radical.Windows.Controls.Resizer.IsGripEnabledProperty">
+            <summary>
+            Identifies the <see cref="P:Topics.Radical.Windows.Controls.Resizer.IsGripEnabled"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Topics.Radical.Windows.Controls.Resizer.IsGripVisibleProperty">
+            <summary>
+            Identifies the <see cref="P:Topics.Radical.Windows.Controls.Resizer.IsGripVisible"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Topics.Radical.Windows.Controls.Resizer.IsAutoSizeEnabledProperty">
+            <summary>
+            Identifies the <see cref="P:Topics.Radical.Windows.Controls.Resizer.IsAutoSizeEnabled"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Topics.Radical.Windows.Controls.Resizer.ResizeDirectionProperty">
+            <summary>
+            Identifies the <see cref="P:Topics.Radical.Windows.Controls.Resizer.ResizeDirection"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Topics.Radical.Windows.Controls.Resizer.IsGripEnabled">
+            <summary>
+            Gets or sets a value indicating whether the grip is enabled.
+            </summary>
+        </member>
+        <member name="P:Topics.Radical.Windows.Controls.Resizer.IsGripVisible">
+            <summary>
+            Gets or sets a value indicating whether the grip is visible.
+            </summary>
+        </member>
+        <member name="P:Topics.Radical.Windows.Controls.Resizer.IsAutoSizeEnabled">
+            <summary>
+            Gets or sets a value indicating whether the <c>Resizer</c> can be auto-sized (by double-clicking on the grip in the default template).
+            </summary>
+        </member>
+        <member name="P:Topics.Radical.Windows.Controls.Resizer.ResizeDirection">
+            <summary>
+            Gets or sets a value indicating the direction in which resizing takes place.
+            </summary>
+        </member>
+        <member name="P:Topics.Radical.Windows.Controls.Resizer.StartResizeCommand">
+            <summary>
+            Gets the command used to start a resize operation.
+            </summary>
+            <remarks>
+            The parameter passed to the command must be a <see cref="T:System.Windows.FrameworkElement"/>, which is used as a context for the resizing operation.
+            </remarks>
+        </member>
+        <member name="P:Topics.Radical.Windows.Controls.Resizer.UpdateSizeCommand">
+            <summary>
+            Gets the command used to update the size of the <c>Resizer</c>.
+            </summary>
+        </member>
+        <member name="P:Topics.Radical.Windows.Controls.Resizer.EndResizeCommand">
+            <summary>
+            Gets the command used to end a resize operation.
+            </summary>
+        </member>
+        <member name="P:Topics.Radical.Windows.Controls.Resizer.AutoSizeCommand">
+            <summary>
+            Gets the command used to automatically size the <c>Resizer</c> according to its content.
+            </summary>
+        </member>
+        <member name="M:Topics.Radical.Windows.Converters.AbstractSingletonConverter.ProvideValue(System.IServiceProvider)">
+            <summary>
+            When implemented in a derived class, returns an object that is set as the value of the target property for this markup extension.
+            </summary>
+            <param name="serviceProvider">Object that can provide services for the markup extension.</param>
+            <returns>
+            The object value to set on the property where the extension is applied.
+            </returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.Converters.AbstractSingletonConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a value.
+            </summary>
+            <param name="value">The value produced by the binding source.</param>
+            <param name="targetType">The type of the binding target property.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>
+            A converted value. If the method returns null, the valid null value is used.
+            </returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.Converters.AbstractSingletonConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a value.
+            </summary>
+            <param name="value">The value that is produced by the binding target.</param>
+            <param name="targetType">The type to convert to.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>
+            A converted value. If the method returns null, the valid null value is used.
+            </returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.Converters.BinaryImageConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a value.
+            </summary>
+            <param name="value">The value produced by the binding source.</param>
+            <param name="targetType">The type of the binding target property.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>
+            A converted value. If the method returns null, the valid null value is used.
+            </returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.Converters.BinaryImageConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a value.
+            </summary>
+            <param name="value">The value that is produced by the binding target.</param>
+            <param name="targetType">The type to convert to.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>
+            A converted value. If the method returns null, the valid null value is used.
+            </returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.Converters.BooleanBusyStatusConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a value.
+            </summary>
+            <param name="value">The value produced by the binding source.</param>
+            <param name="targetType">The type of the binding target property.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>
+            A converted value. If the method returns null, the valid null value is used.
+            </returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.Converters.BooleanBusyStatusConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a value.
+            </summary>
+            <param name="value">The value that is produced by the binding target.</param>
+            <param name="targetType">The type to convert to.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>
+            A converted value. If the method returns null, the valid null value is used.
+            </returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.Converters.BooleanToVisibilityConverter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Topics.Radical.Windows.Converters.BooleanToVisibilityConverter"/> class.
+            </summary>
+        </member>
+        <member name="M:Topics.Radical.Windows.Converters.BooleanToVisibilityConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Modifies the source data before passing it to the target for display in the UI.
+            </summary>
+            <param name="value">The source data being passed to the target.</param>
+            <param name="targetType">The <see cref="T:System.Type"/> of data expected by the target dependency property.</param>
+            <param name="parameter">An optional parameter to be used in the converter logic.</param>
+            <param name="culture">The culture of the conversion.</param>
+            <returns>
+            The value to be passed to the target dependency property.
+            </returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.Converters.BooleanToVisibilityConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Modifies the target data before passing it to the source object.  This method is called only in <see cref="F:System.Windows.Data.BindingMode.TwoWay"/> bindings.
+            </summary>
+            <param name="value">The target data being passed to the source.</param>
+            <param name="targetType">The <see cref="T:System.Type"/> of data expected by the source object.</param>
+            <param name="parameter">An optional parameter to be used in the converter logic.</param>
+            <param name="culture">The culture of the conversion.</param>
+            <returns>
+            The value to be passed to the source object.
+            </returns>
+        </member>
+        <member name="P:Topics.Radical.Windows.Converters.BooleanToVisibilityConverter.FalseValue">
+            <summary>
+            Gets or sets the false value.
+            </summary>
+            <value>
+            The false value.
+            </value>
+        </member>
+        <member name="P:Topics.Radical.Windows.Converters.BooleanToVisibilityConverter.TrueValue">
+            <summary>
+            Gets or sets the true value.
+            </summary>
+            <value>
+            The true value.
+            </value>
+        </member>
+        <member name="T:Topics.Radical.Windows.Converters.LinqFirstOrDefaultConverter">
+            <summary>
+            Given a source list returns the First element of the list or null if
+            the list is empty.
+            </summary>
+        </member>
+        <member name="M:Topics.Radical.Windows.Converters.LinqFirstOrDefaultConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a value.
+            </summary>
+            <param name="value">The value produced by the binding source.</param>
+            <param name="targetType">The type of the binding target property.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>
+            A converted value. If the method returns null, the valid null value is used.
+            </returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.Converters.LinqFirstOrDefaultConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a value.
+            </summary>
+            <param name="value">The value that is produced by the binding target.</param>
+            <param name="targetType">The type to convert to.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>
+            A converted value. If the method returns null, the valid null value is used.
+            </returns>
+        </member>
+        <member name="T:Topics.Radical.Windows.Input.DelegateCommandExtensions">
+            <summary>
+            Add behaviors to a DelegateCommand.
+            </summary>
+        </member>
+        <member name="M:Topics.Radical.Windows.Input.DelegateCommandExtensions.Observe``1(Topics.Radical.ComponentModel.Windows.Input.IDelegateCommand,``0,System.Linq.Expressions.Expression{System.Func{``0,System.Object}}[])">
+            <summary>
+            Monitors the specified properties.
+            </summary>
+            <typeparam name="TSource">The type of the source.</typeparam>
+            <param name="command">The command.</param>
+            <param name="source">The source.</param>
+            <param name="properties">The properties to monitor.</param>
+            <returns>The original command.</returns>
+        </member>
+        <member name="T:Topics.Radical.Windows.Input.DelegateCommand">
+            <summary>
+            The default implementation of the IDelegateCommand interface.
+            </summary>
+        </member>
+        <member name="M:Topics.Radical.Windows.Input.DelegateCommand.SetData(System.Object)">
+            <summary>
+            Used by the AutoCommandBinding...shuold be rewritten better :-)
+            </summary>
+            <param name="data">The data.</param>
+        </member>
+        <member name="M:Topics.Radical.Windows.Input.DelegateCommand.GetData``1">
+            <summary>
+            Used by the AutoCommandBinding...shuold be rewritten better :-)
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="F:Topics.Radical.Windows.Input.DelegateCommand.Empty">
+            <summary>
+            An emtpy command, usefull as a placeholder.
+            </summary>
+        </member>
+        <member name="M:Topics.Radical.Windows.Input.DelegateCommand.Create">
+            <summary>
+            Creates a new command.
+            </summary>
+            <returns>The new command.</returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.Input.DelegateCommand.Create(System.String)">
+            <summary>
+            Creates a new command with the specified display text.
+            </summary>
+            <param name="displayText">The display text.</param>
+            <returns>The new command.</returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.Input.DelegateCommand.OnCanExecuteChanged">
+            <summary>
+            Raises <seealso cref="E:Topics.Radical.Windows.Input.DelegateCommand.CanExecuteChanged"/> on the UI thread.
+            </summary>
+        </member>
+        <member name="M:Topics.Radical.Windows.Input.DelegateCommand.#ctor(System.Action{System.Object},System.Func{System.Object,System.Boolean},System.String)">
+            <summary>
+            Constructor. Initializes delegate command with Execute delegate and CanExecute delegate
+            </summary>
+            <param name="executeMethod">Delegate to execute when Execute is called on the command.  This can be null to just hook up a CanExecute delegate.</param>
+            <param name="canExecuteMethod">Delegate to execute when CanExecute is called on the command.  This can be null.</param>
+            <param name="displayText">Text displayed by elements this command is bound to</param>
+        </member>
+        <member name="M:Topics.Radical.Windows.Input.DelegateCommand.OnExecute(System.Action{System.Object})">
+            <summary>
+            Sets the given Action as the delegate that must handle
+            the commands execution logic.
+            </summary>
+            <param name="executeMethod">The delegate to execute at execution time.</param>
+            <returns>
+            An instance of the current command.
+            </returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.Input.DelegateCommand.OnCanExecute(System.Func{System.Object,System.Boolean})">
+            <summary>
+            Sets the given Action as the delegate that must handle
+            the logic that determines whether the command can be executed or not.
+            </summary>
+            <param name="canExecuteMethod">The delegate to invoke.</param>
+            <returns>
+            An instance of the current command.
+            </returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.Input.DelegateCommand.AddGesture(System.Windows.Input.InputGesture)">
+            <summary>
+            Adds a new gesture to associate inputbindings
+            </summary>
+        </member>
+        <member name="M:Topics.Radical.Windows.Input.DelegateCommand.CanExecute(System.Object)">
+            <summary>
+            Defines the method that determines whether the command can execute in its current state.
+            </summary>
+            <param name="parameter">Data used by the command.  If the command does not require data to be passed, this object can be set to null.</param>
+            <returns>
+            true if this command can be executed; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.Input.DelegateCommand.Execute(System.Object)">
+            <summary>
+            Defines the method to be called when the command is invoked.
+            </summary>
+            <param name="parameter">Data used by the command.  If the command does not require data to be passed, this object can be set to null.</param>
+        </member>
+        <member name="M:Topics.Radical.Windows.Input.DelegateCommand.WithTrackingPreview(System.Action{Topics.Radical.Analytics.AnalyticsEvent})">
+            <summary>
+            Intercepts the analytics tracking information before sending to the analytics service.
+            </summary>
+            <param name="onBeforeTracking">The before tracking handler.</param>
+            <returns>
+            An instance of the current command.
+            </returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.Input.DelegateCommand.EvaluateCanExecute">
+            <summary>
+            Raises <see cref="E:Topics.Radical.Windows.Input.DelegateCommand.CanExecuteChanged"/> so every command invoker can requery to check if the command can execute.
+            <remarks>Note that this will trigger the execution of <see cref="M:Topics.Radical.Windows.Input.DelegateCommand.CanExecute(System.Object)"/> once for each invoker.</remarks>
+            </summary>
+        </member>
+        <member name="M:Topics.Radical.Windows.Input.DelegateCommand.AddMonitor(Topics.Radical.ComponentModel.IMonitor[])">
+            <summary>
+            Adds all the given triggers to the list of triggers.
+            </summary>
+            <param name="triggers">The triggers.</param>
+            <returns>
+            An instance of the current command.
+            </returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.Input.DelegateCommand.AddMonitor(Topics.Radical.ComponentModel.IMonitor)">
+            <summary>
+            Adds a trigger monitor to the list of triggers.
+            </summary>
+            <param name="source">The source monitor.</param>
+            <returns>
+            An instance of the current command.
+            </returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.Input.DelegateCommand.RemoveMonitor(Topics.Radical.ComponentModel.IMonitor)">
+            <summary>
+            Removes the given monitor from the list of triggers.
+            </summary>
+            <param name="source">The monitor to remove.</param>
+            <returns>
+            An instance of the current command.
+            </returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.Input.DelegateCommand.OnTriggerChanged(Topics.Radical.ComponentModel.IMonitor)">
+            <summary>
+            Called one of the trigger registered with this command
+            raises the changed event.
+            </summary>
+            <param name="source">The source trigger.</param>
+        </member>
+        <member name="M:Topics.Radical.Windows.Input.DelegateCommand.System#Windows#IWeakEventListener#ReceiveWeakEvent(System.Type,System.Object,System.EventArgs)">
+            <summary>
+            Receives events from the centralized event manager.
+            </summary>
+            <param name="managerType">The type of the <see cref="T:System.Windows.WeakEventManager"/> calling this method.</param>
+            <param name="sender">Object that originated the event.</param>
+            <param name="e">Event data.</param>
+            <returns>
+            true if the listener handled the event. It is considered an error by the <see cref="T:System.Windows.WeakEventManager"/> handling in WPF to register a listener for an event that the listener does not handle. Regardless, the method should return false if it receives an event that it does not recognize or handle.
+            </returns>
+        </member>
+        <member name="E:Topics.Radical.Windows.Input.DelegateCommand.CanExecuteChanged">
+            <summary>
+            Occurs when changes occur that affect whether the command should execute.
+            </summary>
+        </member>
+        <member name="P:Topics.Radical.Windows.Input.DelegateCommand.DisplayText">
+            <summary>
+            Gets command display text
+            </summary>
+        </member>
+        <member name="P:Topics.Radical.Windows.Input.DelegateCommand.InputBindings">
+            <summary>
+            Command's associated input bindings
+            </summary>
+        </member>
+        <member name="M:Topics.Radical.Windows.Markup.CommandBinding.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Topics.Radical.Windows.Markup.CommandBinding"/> class.
+            </summary>
+        </member>
+        <member name="M:Topics.Radical.Windows.Markup.CommandBinding.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Topics.Radical.Windows.Markup.CommandBinding"/> class.
+            </summary>
+            <param name="path">The path.</param>
+        </member>
+        <member name="M:Topics.Radical.Windows.Markup.CommandBinding.ProvideValue(System.IServiceProvider)">
+            <summary>
+            This basic implementation just sets a binding on the targeted
+            <see cref="T:System.Windows.DependencyObject"/> and returns the appropriate
+            <see cref="T:System.Windows.Data.BindingExpressionBase"/> instance.<br/>
+            All this work is delegated to the decorated <see cref="T:System.Windows.Data.Binding"/>
+            instance.
+            </summary>
+            <param name="provider">Object that can provide services for the markup
+            extension.</param>
+            <returns>
+            The object value to set on the property where the extension is applied.
+            In case of a valid binding expression, this is a <see cref="T:System.Windows.Data.BindingExpressionBase"/>
+            instance.
+            </returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.Markup.AutoCommandBinding.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Topics.Radical.Windows.Markup.AutoCommandBinding"/> class.
+            </summary>
+        </member>
+        <member name="M:Topics.Radical.Windows.Markup.AutoCommandBinding.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Topics.Radical.Windows.Markup.AutoCommandBinding"/> class.
+            </summary>
+            <param name="path">The path.</param>
+        </member>
+        <member name="M:Topics.Radical.Windows.Markup.AutoCommandBinding.ProvideValue(System.IServiceProvider)">
+            <summary>
+            This basic implementation just sets a binding on the targeted
+            <see cref="T:System.Windows.DependencyObject"/> and returns the appropriate
+            <see cref="!:BindingExpressionBase"/> instance.<br/>
+            All this work is delegated to the decorated <see cref="!:Binding"/>
+            instance.
+            </summary>
+            <param name="provider">Object that can provide services for the markup
+            extension.</param>
+            <returns>
+            The object value to set on the property where the extension is applied.
+            In case of a valid binding expression, this is a <see cref="!:BindingExpressionBase"/>
+            instance.
+            </returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.RadicalWpfApplication.DoEvents">
+            <summary>
+            Processes all UI messages currently in the message queue.
+            </summary>
+        </member>
+        <member name="T:Topics.Radical.Windows.VisualTreeCrawler">
+            <summary>
+            A helper calss for visual tree crawling.
+            </summary>
+        </member>
+        <member name="M:Topics.Radical.Windows.VisualTreeCrawler.IsChildOfType``1(System.Windows.DependencyObject)">
+            <summary>
+            Determines whether the given dependency object is child 
+            of an object of the specified type T.
+            </summary>
+            <typeparam name="T">The type of the parent object.</typeparam>
+            <param name="obj">The obj to determine the parent type for.</param>
+            <returns>
+            	<c>true</c> if the given dependency object is child of an object of the specified type T; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.VisualTreeCrawler.FindParent``1(System.Windows.DependencyObject)">
+            <summary>
+            Finds, in the Visual Tree, the parent, of the given type T,
+            of the given dependency object.
+            </summary>
+            <typeparam name="T">The type of the searched parent.</typeparam>
+            <param name="obj">The object where to start search.</param>
+            <returns>The found parent dependency object or null if none is of the given type T.</returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.VisualTreeCrawler.FindParent``1(System.Windows.DependencyObject,System.Predicate{``0})">
+            <summary>
+            Finds, in the Visual Tree, the parent, of the given type T,
+            of the given dependency object that matches the given condition.
+            </summary>
+            <typeparam name="T">The type of the searched parent.</typeparam>
+            <param name="obj">The object where to start search.</param>
+            <param name="matchCondition">The match condition.</param>
+            <returns>
+            The found parent dependency object or null if none is of the given type T.
+            </returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.VisualTreeCrawler.FindChild``1(System.Windows.DependencyObject)">
+            <summary>
+            Finds the child fo the givent type.
+            </summary>
+            <typeparam name="T">The typeof the child to find.</typeparam>
+            <param name="source">The source to look on.</param>
+            <returns>
+            The found child if any; otherwise null.
+            </returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.VisualTreeCrawler.FindChild``1(System.Windows.DependencyObject,System.Predicate{``0})">
+            <summary>
+            Finds the child fo the givent type.
+            </summary>
+            <typeparam name="T">The typeof the child to find.</typeparam>
+            <param name="source">The source to look on.</param>
+            <param name="filter">The filter to apply to determine if the found child satisfy the requirments of the caller.</param>
+            <returns>The found child if any; otherwise null.</returns>
+        </member>
+        <member name="T:Topics.Radical.Windows.Controls.Themes.generic">
+            <summary>
+            generic
+            </summary>
+        </member>
+        <member name="M:Topics.Radical.Windows.Controls.Themes.generic.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Topics.Radical.Windows.Threading.WpfDispatcher">
+            <summary>
+            Wraps the Wpf multi-threading synchronization 
+            Dispatcher (System.Windows.Threading).
+            </summary>
+        </member>
+        <member name="M:Topics.Radical.Windows.Threading.WpfDispatcher.#ctor(System.Windows.Threading.Dispatcher)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Topics.Radical.Windows.Threading.WpfDispatcher"/> class.
+            </summary>
+            <param name="dispatcher">The wrapped Wpf dispatcher.</param>
+        </member>
+        <member name="M:Topics.Radical.Windows.Threading.WpfDispatcher.Dispatch(System.Action)">
+            <summary>
+            Safely dispatches the specified action.
+            </summary>
+            <param name="action">The action.</param>
+        </member>
+        <member name="M:Topics.Radical.Windows.Threading.WpfDispatcher.Dispatch``1(``0,System.Action{``0})">
+            <summary>
+            Safely dispatches the given argument to the supplied action.
+            </summary>
+            <typeparam name="T">Argument type.</typeparam>
+            <param name="arg">The argument.</param>
+            <param name="action">The action to dispatch.</param>
+        </member>
+        <member name="M:Topics.Radical.Windows.Threading.WpfDispatcher.Dispatch``2(``0,``1,System.Action{``0,``1})">
+            <summary>
+            Safely dispatches the given arguments to the supplied action.
+            </summary>
+            <typeparam name="T1">The type of the first argument.</typeparam>
+            <typeparam name="T2">The type of the second argument.</typeparam>
+            <param name="arg1">The first argument.</param>
+            <param name="arg2">The second argument.</param>
+            <param name="action">The action to dispatch.</param>
+        </member>
+        <member name="M:Topics.Radical.Windows.Threading.WpfDispatcher.Dispatch``1(System.Func{``0})">
+            <summary>
+            Safely dispatches the specified Func delegate.
+            </summary>
+            <typeparam name="TResult">The type of the Func result.</typeparam>
+            <param name="func">The Func to dispatch.</param>
+            <returns>The result of Func invocation.</returns>
+        </member>
+        <member name="M:Topics.Radical.Windows.Threading.WpfDispatcher.Invoke(System.Delegate,System.Object[])">
+            <summary>
+            Safely invokes the specified delegate.
+            </summary>
+            <param name="d">The delegate to invoke.</param>
+            <param name="args">The delegate arguments, or null if no arguments shuold passed to the delegate.</param>
+        </member>
+        <member name="P:Topics.Radical.Windows.Threading.WpfDispatcher.IsSafe">
+            <summary>
+            Gets a value indicating whether the caller can safely call a target method without using this dispatcher.
+            </summary>
+            <value><c>true</c> if the call is safe; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:Topics.Radical.Windows.LoadedWeakEventManager.StartListening(System.Object)">
+            <summary>
+            When overridden in a derived class, starts listening for the event being managed. After <see cref="M:System.Windows.WeakEventManager.StartListening(System.Object)"/>  is first called, the manager should be in the state of calling <see cref="M:System.Windows.WeakEventManager.DeliverEvent(System.Object,System.EventArgs)"/> or <see cref="M:System.Windows.WeakEventManager.DeliverEventToList(System.Object,System.EventArgs,System.Windows.WeakEventManager.ListenerList)"/> whenever the relevant event from the provided source is handled.
+            </summary>
+            <param name="source">The source to begin listening on.</param>
+        </member>
+        <member name="M:Topics.Radical.Windows.LoadedWeakEventManager.StopListening(System.Object)">
+            <summary>
+            When overridden in a derived class, stops listening on the provided source for the event being managed.
+            </summary>
+            <param name="source">The source to stop listening on.</param>
+        </member>
+        <member name="T:Topics.Radical.Windows.MonitorChangedWeakEventManager">
+            <summary>
+            A WeakEventManager for the MontiorChanged event.
+            </summary>
+        </member>
+        <member name="M:Topics.Radical.Windows.MonitorChangedWeakEventManager.AddListener(Topics.Radical.ComponentModel.IMonitor,System.Windows.IWeakEventListener)">
+            <summary>
+            Adds the listener.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="listener">The listener.</param>
+        </member>
+        <member name="M:Topics.Radical.Windows.MonitorChangedWeakEventManager.RemoveListener(Topics.Radical.ComponentModel.IMonitor,System.Windows.IWeakEventListener)">
+            <summary>
+            Removes the listener.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="listener">The listener.</param>
+        </member>
+        <member name="M:Topics.Radical.Windows.MonitorChangedWeakEventManager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Topics.Radical.Windows.MonitorChangedWeakEventManager"/> class.
+            </summary>
+        </member>
+        <member name="M:Topics.Radical.Windows.MonitorChangedWeakEventManager.OnChanged(System.Object,System.EventArgs)">
+            <summary>
+            Called in order to deliver the Changed event.
+            </summary>
+            <param name="sender">The event sender.</param>
+            <param name="args">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Topics.Radical.Windows.MonitorChangedWeakEventManager.StartListening(System.Object)">
+            <summary>
+            When overridden in a derived class, starts listening for the event being managed. After <see cref="M:System.Windows.WeakEventManager.StartListening(System.Object)"/>  is first called, the manager should be in the state of calling <see cref="M:System.Windows.WeakEventManager.DeliverEvent(System.Object,System.EventArgs)"/> or <see cref="M:System.Windows.WeakEventManager.DeliverEventToList(System.Object,System.EventArgs,System.Windows.WeakEventManager.ListenerList)"/> whenever the relevant event from the provided source is handled.
+            </summary>
+            <param name="source">The source to begin listening on.</param>
+        </member>
+        <member name="M:Topics.Radical.Windows.MonitorChangedWeakEventManager.StopListening(System.Object)">
+            <summary>
+            When overridden in a derived class, stops listening on the provided source for the event being managed.
+            </summary>
+            <param name="source">The source to stop listening on.</param>
+        </member>
+    </members>
+</doc>

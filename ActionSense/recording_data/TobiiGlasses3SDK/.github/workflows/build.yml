@@ -1,0 +1,80 @@
+name: Build G3SDK
+
+on:
+  push:
+    branches: [ main, f/** ]
+    tags:        
+      - v*
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: Application Version
+      id: version
+      uses: paulhatch/semantic-version@v4.0.2
+      with:        
+        format: "${major}.${minor}.${patch}.${increment}"
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '6.0.x'
+        include-prerelease: true
+    - name: Install dependencies
+      run: dotnet restore
+    - name: Build debug
+      run: dotnet build --configuration Debug /p:Version=${{steps.version.outputs.version}} /p:FileVersion=${{steps.version.outputs.version}} /p:AssemblyVersion=${{steps.version.outputs.version}}
+    - name: Build release
+      run: dotnet build --configuration Release /p:Version=${{steps.version.outputs.version}} /p:FileVersion=${{steps.version.outputs.version}} /p:AssemblyVersion=${{steps.version.outputs.version}}
+    - name: Remove nuget package
+      run: del source/bin/Release/*.nupkg
+    - name: Sign release binaries
+      uses: jonashogstrom/code-sign-action@v2.0.9
+      with:
+        certificate: '${{secrets.TOBIICODESIGNCERTIFICATE_B64}}'
+        sign_args: '/v /p ${{secrets.CODESIGNPASSWORD}} /tr http://timestamp.digicert.com /sha1 ${{secrets.TOBIICODESIGNCERTIFICATE_SHA1}}'
+        folder: 'source/bin/Release'
+        recursive: true
+
+    - name: Build nuget package
+      run: dotnet pack --no-build --configuration Release /p:Version=${{steps.version.outputs.version}} 
+
+    - name: Extract certificate
+      id: cert_file
+      uses: timheuer/base64-to-file@master
+      with:
+        fileName: 'certfile.pfx'
+        encodedString: ${{ secrets.TOBIICODESIGNCERTIFICATE_B64 }}
+
+    - name: Sign NuGet Package
+      run: dotnet nuget sign "source\bin\Release\Tobii.Glasses3.SDK.*.nupkg" --certificate-path "${{steps.cert_file.outputs.filePath}}" --certificate-password "${{secrets.CODESIGNPASSWORD}}" --timestamper http://timestamp.digicert.com --verbosity detailed
+
+    - name: Upload nuget package
+      uses: actions/upload-artifact@v2
+      with:
+        name: Tobii.Glasses3.SDK_${{steps.version.outputs.version}}
+        path: source/bin/Release/Tobii.Glasses3.SDK.*.nupkg
+
+    - name: Upload signed SDK dlls, .net4
+      uses: actions/upload-artifact@v2
+      with:
+        name: Tobii.Glasses3.SDK.net4-binaries_${{steps.version.outputs.version}}
+        path: source/bin/Release/net472/*.dll
+
+    - name: Upload signed SDK dlls .net5
+      uses: actions/upload-artifact@v2
+      with:
+        name: Tobii.Glasses3.SDK.net5-binaries_${{steps.version.outputs.version}}
+        path: source/bin/Release/net5.0/*.dll
+
+    - name: Upload LSLConnector
+      uses: actions/upload-artifact@v2
+      with:
+        name: G3LSLConnector_${{steps.version.outputs.version}}
+        path: examples/G3LSLConnector/bin/Release/net48/*.*

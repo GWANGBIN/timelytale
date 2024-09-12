@@ -1,0 +1,43 @@
+version: "3.6"
+
+services:
+
+    dhcpserver:
+      image: "networkboot/dhcpd"
+      network_mode: "host"
+
+      volumes:
+        - type: bind
+          source: ./dhcpconf
+          target: /data
+
+      command: ${NET_INTERFACE}
+
+    tobiiglasses2:
+      build:
+        context: .
+        dockerfile: Dockerfile
+        args:
+          TOBIIGLASSESCTRL_VER: ${TOBIIGLASSESCTRL_VER}
+
+      container_name: tobiiglasses2
+
+      network_mode: "host"
+
+      environment:
+        - "DISPLAY=${DISPLAY}"
+        - "QT_X11_NO_MITSHM=1"
+
+      privileged: true
+      stdin_open: true
+      tty: true
+
+      volumes:
+        - type: bind
+          source: ../
+          target: /home/docky/TobiiGlassesPyController
+
+      entrypoint: ["bash"]
+
+      depends_on:
+        - dhcpserver
