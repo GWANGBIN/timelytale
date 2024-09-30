@@ -1,6 +1,8 @@
-# TimelyTale
+# TimelyTale Repository
 
-- ![GitHub total commits](https://img.shields.io/github/commit-activity/total/GWANGBIN/timelytale?label=total%20commits)
-- ![GitHub repo size](https://img.shields.io/github/repo-size/GWANGBIN/timelytale?label=repo%20size)
-- ![GitHub language count](https://img.shields.io/github/languages/code-size/GWANGBIN/timelytale?label=total%20code%20size)
-- ![GitHub languages](https://img.shields.io/github/languages/count/GWANGBIN/timelytale?label=languages)
+## Repository
+
+- **Total Commits**: ![GitHub total commits](https://img.shields.io/github/commits-since/GWANGBIN/timelytale/HEAD?label=total%20commits)
+- **Repository Size**: ![GitHub repo size](https://img.shields.io/github/repo-size/GWANGBIN/timelytale?label=repo%20size)
+- **Total Files**: This will be updated automatically by GitHub Action.
+- **Number of Languages**: ![GitHub languages](https://img.shields.io/github/languages/count/GWANGBIN/timelytale?label=languages)

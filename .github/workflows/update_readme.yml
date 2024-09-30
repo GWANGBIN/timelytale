@@ -1,0 +1,33 @@
+name: Update README with File Count
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 0 * * 1'  # Runs every Monday at midnight
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Count total files
+        run: |
+          total_files=$(find . -type f | wc -l)
+          echo "Total files: $total_files"
+          
+          # Append or update the file count in README.md
+          sed -i '/Total files:/d' README.md
+          echo "- **Total files**: $total_files" >> README.md
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'actions@github.com'
+          git add README.md
+          git commit -m "Update README with total file count"
+          git push
