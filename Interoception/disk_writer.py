@@ -6,7 +6,6 @@ write_queues = {
     'depth_images_d435': queue.Queue(),
     'color_images_d435': queue.Queue(),
     'depth_images_l515': queue.Queue(),
-    'zed_whole_images': queue.Queue(),
     'heat_images': queue.Queue()
 }
 

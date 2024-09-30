@@ -1,17 +1,15 @@
 import os
 import threading
 from capture_realsense import capture_realsense
-from capture_zed import capture_zed
 from capture_heat_camera import capture_heat_camera
 from disk_writer import disk_writer, write_queues
 import pyrealsense2 as rs
 
 if __name__ == "__main__":
-    # Create directories for saving images if they don't already exist
+    # Create directories for saving images
     folders = [
         'depth_images_d435', 'color_images_d435',
-        'depth_images_l515',  # Removed color_images_l515
-        'zed_whole_images', 'heat_images'
+        'depth_images_l515', 'heat_images'
     ]
     for folder in folders:
         if not os.path.exists(folder):
@@ -31,8 +29,7 @@ if __name__ == "__main__":
     # Initialize disk writer threads for each folder
     writer_threads = [threading.Thread(target=disk_writer, args=(folder,)) for folder in folders]
 
-    # Start threads for ZED and heat cameras
-    zed_thread = threading.Thread(target=capture_zed)
+    # Start threads for heat camera and RealSense cameras
     heat_thread = threading.Thread(target=capture_heat_camera)
 
     # Start all threads
@@ -40,13 +37,11 @@ if __name__ == "__main__":
         writer_thread.start()
     realsense_d435_thread.start()
     realsense_l515_thread.start()
-    zed_thread.start()
     heat_thread.start()
 
     # Wait for camera threads to finish
     realsense_d435_thread.join()
     realsense_l515_thread.join()
-    zed_thread.join()
     heat_thread.join()
 
     # Signal disk writer threads to terminate

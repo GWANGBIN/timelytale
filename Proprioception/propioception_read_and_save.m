@@ -23,23 +23,6 @@ fopen(s_gps);
 s_obd = serial('COM7', 'BaudRate', 9600);
 fopen(s_obd);
 
-% Initialize LiDAR
-lidar = velodynelidar('VLP16');
-start(lidar);
-
-% Pre-allocate arrays for LiDAR point clouds and timestamps
-pclouds = {};
-unix_timestamps_lidar = [];
-
-% Set LiDAR timing variables
-lidar_last_time = 0;
-lidar_interval = 1 / 10; % 10 Hz frame rate
-
-% Initialize LiDAR frame counter and data index
-lidar_frame_count = 0;
-lidar_data_index = 0;
-lidar_start_time = tic;
-
 % Pre-allocate memory for sensor data
 nSamplesIMU = 90000; % 30 Hz * 60 seconds/minute * 50 minutes
 nSamplesGPS = 15000; % 5 Hz * 60 seconds/minute * 50 minutes
@@ -73,19 +56,12 @@ imu_data_index = 0;
 gps_data_index = 0;
 obd_data_index = 0;
 
-% Variables for frame rate display timing
-frame_rate_display_interval = 5; % seconds
-imu_last_display_time = 0;
-gps_last_display_time = 0;
-lidar_last_display_time = 0;
-obd_last_display_time = 0;
-
 % Initialize IMU sensor readings
 imu_acc = [0; 0; 0];
 imu_ang_velocity = [0; 0; 0];
 imu_angle_reading = [0; 0; 0];
 
-% Main data collection loop
+% Main data collection loop for interoception
 while true
     current_time = posixtime(datetime('now'));
     
@@ -134,80 +110,3 @@ while true
             gps_data(gps_data_index, :) = gps_parsed_data;
             gps_timestamps(gps_data_index) = current_time;
         end
-    end
-
-    % Read OBD data at 5 Hz
-    if current_time - obd_last_time >= obd_interval
-        obd_last_time = current_time;
-        
-        % Read OBD data
-        obd_raw_data = fscanf(s_obd);
-        obd_parsed_data = str2double(strsplit(obd_raw_data, ','));
-        
-        if length(obd_parsed_data) == 5
-            obd_frame_count = obd_frame_count + 1;
-            obd_data_index = obd_data_index + 1;
-            obd_data(obd_data_index, :) = obd_parsed_data;
-            obd_timestamps(obd_data_index) = current_time;
-        end
-    end
-
-    % Read LiDAR data at 10 Hz
-    if current_time - lidar_last_time >= lidar_interval
-        lidar_last_time = current_time;
-        
-        % Read and store LiDAR point cloud and timestamp
-        [point_cloud, timestamp] = read(lidar, 'latest');
-        lidar_frame_count = lidar_frame_count + 1;
-        lidar_data_index = lidar_data_index + 1;
-        
-        unix_time_lidar = posixtime(timestamp);
-        pclouds{lidar_data_index} = point_cloud;
-        unix_timestamps_lidar(lidar_data_index) = unix_time_lidar;
-    end
-    
-    % Display frame rates every 5 seconds
-    if current_time - imu_last_display_time >= frame_rate_display_interval
-        fprintf('IMU frame rate: %.2f Hz\n', imu_frame_count / frame_rate_display_interval);
-        imu_frame_count = 0;
-        imu_last_display_time = current_time;
-    end
-    
-    if current_time - gps_last_display_time >= frame_rate_display_interval
-        fprintf('GPS frame rate: %.2f Hz\n', gps_frame_count / frame_rate_display_interval);
-        gps_frame_count = 0;
-        gps_last_display_time = current_time;
-    end
-    
-    if current_time - obd_last_display_time >= frame_rate_display_interval
-        fprintf('OBD frame rate: %.2f Hz\n', obd_frame_count / frame_rate_display_interval);
-        obd_frame_count = 0;
-        obd_last_display_time = current_time;
-    end
-    
-    if current_time - lidar_last_display_time >= frame_rate_display_interval
-        fprintf('LiDAR frame rate: %.2f Hz\n', lidar_frame_count / frame_rate_display_interval);
-        lidar_frame_count = 0;
-        lidar_last_display_time = current_time;
-    end
-    
-    % Check for 'q' key press to exit loop
-    keyPressed = evalin('base', 'keyPressed');
-    if strcmp(keyPressed, 'q')
-        disp('Loop halted by user.');
-        break;
-    end
-    
-    % Process event queue to ensure smooth GUI operation
-    drawnow;
-end
-
-% Clean up: Close serial ports and stop LiDAR acquisition
-fclose(s_imu);
-fclose(s_gps);
-fclose(s_obd);
-stop(lidar);
-
-% Clear LiDAR object and close the figure window
-clear lidar;
-close(f);
