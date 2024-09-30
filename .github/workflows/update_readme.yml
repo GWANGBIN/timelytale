@@ -20,9 +20,8 @@ jobs:
           total_files=$(find . -type f | wc -l)
           echo "Total files: $total_files"
           
-          # Append or update the file count in README.md
-          sed -i '/Total files:/d' README.md
-          echo "- **Total files**: $total_files" >> README.md
+          # Update the Total Files in README.md
+          sed -i '/Total Files:/c\- **Total Files**: $total_files' README.md
 
       - name: Commit and push changes
         run: |
