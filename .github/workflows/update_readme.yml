@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 0 * * 1'  # Runs every Monday at midnight
+    - cron: '28 12 * * 1'
 
 jobs:
   update-readme:
